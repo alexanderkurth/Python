@@ -3,6 +3,8 @@ import sys
 lines = sys.stdin.readlines()
 if lines[-1] == ' ': del lines[-1]
 
+del lines[0]
+
 for line in lines:
     x,y = list(map(int,line.split()))
 
@@ -10,7 +12,5 @@ for line in lines:
         print(">")
     elif(x < y):
         print("<")
-    elif(x==y) :
-        print("=")
     else:
-        print("")
+        print("=")
