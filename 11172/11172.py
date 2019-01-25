@@ -7,6 +7,10 @@ for line in lines:
     x,y = list(map(int,line.split()))
 
     if(x > y):
-        print(x-y)
+        print(">")
+    elif(x < y):
+        print("<")
+    elif(x==y) :
+        print("=")
     else:
-        print(y-x)
+        print("")
