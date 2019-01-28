@@ -7,11 +7,18 @@ del lines[0]
 i = 0
 
 for line in lines:
-    temp = list(map(float, line.split()))
+    x,y,z,g = list(map(float, line.split()))
 
-    if(temp[0] > 56.00 and temp[1] > 45.00 and temp[2] > 25.00 or temp[3] > 7.00 or temp[0]+temp[1]+temp[2]+temp[3]>125):
+    if(x > 56.00 and x+y+z > 125):
         print (0)
+    elif(y > 45.00 and x+y+z > 125):
+        print(0)
+    elif(z >25.00 and x+y+z > 125):
+        print(0)
+    elif(g > 7.00):
+        print(0)
     else:
-        print (1)
-        i += 1
+        print(1)
+        i+=1
+
 print (i)    
