@@ -1,26 +1,32 @@
 import sys
 
-lines = sys.stdin.readlines()
-if lines[-1] == ' ': del lines[-1]
+def load_nums():
+    num_str = sys.stdin.readline()
+    if num_str == '\n' or num_str=='':
+        return None
 
-for line in lines:
+    return list(map(int, num_str.rstrip().split()))
 
-    temp = list(map(int, line.split()))
 
-    i = 1
-    verif = 0
+def is_jolly(numbers):
     
+    sub = set([abs(b-a) for a, b in zip(numbers, numbers[1:])])
+   
+    for n in range(1, len(numbers)):
+        if n not in sub:
+            return False
 
-    for i in range(1, temp[0]):
-        if(1 <= abs(temp[i]-temp[i+1]) <= temp[0]-1):
-            verif = 0
+    return True
+
+
+if __name__ == '__main__':
+
+    while True:
+        numbers = load_nums()
+        if numbers is None:
+            break
+
+        if is_jolly(numbers[1:]):
+            print("Jolly")
         else:
-            verif = 1
-
-    if(verif == 0):
-        print("Jolly")
-    else :
-        print("Not jolly")
-
-
-
+            print("Not jolly")
