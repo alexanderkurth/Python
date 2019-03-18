@@ -6,9 +6,6 @@ if lines[-1] == ' ':del lines[-1]
 nombremediane = lines[0]
 del(lines[0])
 
-x= 0
-y = set()
-
 for line in lines:
     valeur = list(map(float, line.split()))
     nombre = valeur[0]
